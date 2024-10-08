@@ -1,5 +1,6 @@
 package ie.atu.week3lab;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -22,9 +23,9 @@ public class ProductController
         return productList;
     }
     @PostMapping("addProduct")
-    public List<Product> addProduct(@RequestBody Product product)
+    public ResponseEntity<List> addProduct(@RequestBody Product product)
     {
         productList.add(product);
-        return productList;
+        return ResponseEntity.ok(productList);
     }
 }
