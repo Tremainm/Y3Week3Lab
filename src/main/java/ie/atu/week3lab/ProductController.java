@@ -41,6 +41,18 @@ public class ProductController
         }
         productList.add(product);
         return ResponseEntity.ok(productList);
+    }
+    @DeleteMapping("/{id}")
+    public ResponseEntity<List> deleteProduct(@PathVariable String id)
+    {
+        for(Product p : productList) //enhanced for loop
+        {
+            if (p.getId().equals(id))//checks entered id against ids of all objects in the arraylist
+            {
+                productList.remove(p);
 
+            }
+        }
+        return ResponseEntity.ok(productList);
     }
 }
